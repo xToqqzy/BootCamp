@@ -1,0 +1,5 @@
+years = (input("Enter the number of years: "))
+months = 12
+days = 365
+
+print("Months:",int(years) * months , ", "  "Days: ",int(years) * days)

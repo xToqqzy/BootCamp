@@ -1,0 +1,30 @@
+while True:
+    # Ask the user for input and store it in a variable
+    user_input = input("Enter the price of the meal in the format 'Cost of the meal: X'\n")
+
+    # Split the input string into a list of words
+    words = user_input.split()
+
+    # Check if the input is in the correct format if not make the user enter the correct format hij checkt of de eerste 4 woorden in de lijst gelijk zijn aan de woorden "Cost of the meal:" of hij checkt het per woord zoals je kunt zien or use "cost"
+    if len(words) != 5 or words[0] != "Cost" or words[1] != "of" or words[2] != "the" or words[3] != "meal:":
+        print("Invalid input format. Please enter the price in the format 'Cost of the meal: X'")
+        continue
+
+    # Extract the price from the list and convert it to a float voor decimalen getallen
+    try:
+        Price = float(words[4])
+    except ValueError:
+        print("Invalid price. Please enter a valid number for the price.")
+        continue
+
+    # Calculate the tip, tax, and total
+    tip = 0.15 * Price  # 15% tip
+    tax = 0.21 * Price  # 21% tax
+    total = round(Price + tip + tax, 3)  # Total, rounded to 3 decimal places
+
+    # Create the final price string
+    FinalPrice = f"Tax: {tax} ,Tip: {tip} ,Total: {total}"
+
+    # Print the final price
+    print(FinalPrice)
+    break
