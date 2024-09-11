@@ -1,7 +1,0 @@
-widget = 75
-gizmo = 112
-input_widget = int(input("Enter the number of widgets: "))
-input_gizmo = int(input("Enter the number of gizmos: "))
-total_weight = (widget * input_widget) + (gizmo * input_gizmo)
-
-print(f"The Total weight of the order: {total_weight}")

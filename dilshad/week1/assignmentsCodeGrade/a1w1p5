@@ -1,9 +1,0 @@
-User_Input = input("Enter four digits: ")
-
-# Ensure there are exactly 4 digits and if not gives error message used the len() function to check the length of the string
-if len(User_Input) != 4:
-    print("Please enter exactly four digits.")
-else:
-    # Convert the strings to integers and add them called out al the numbers in the list and added them together
-    result = int(User_Input[0]) + int(User_Input[1]) + int(User_Input[2]) + int(User_Input[3])
-    print(User_Input[0], "+", User_Input[1], "+", User_Input[2], "+", User_Input[3], "=", result)

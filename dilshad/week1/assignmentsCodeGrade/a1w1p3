@@ -1,6 +1,0 @@
-float1 = input("Enter widht: ")
-float2 = input("Enter lenght: ")
-
-answer = float(float1) * float(float2)
-
-print("The area of the room is: ", answer)
