@@ -22,4 +22,4 @@ if a + b > c and a + c > b and b + c > a:
         print("Scalene triangle")
 else:
     # Print a more descriptive error message
-    print("The input numbers do not form a valid triangle")
+    print("The input numbers do not form a valid trianglscalene")
