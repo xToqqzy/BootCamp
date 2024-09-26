@@ -1,22 +1,16 @@
-# Step 1: Get user input
-user_input = input("Enter a string: ")
+user_input = input("Write your sentence: ")
 
-user_split = user_input.split(" ")
+is_palindrome = True  
 
-# Step 2: Normalize the input
-normalized_string = ""
-for letter in user_input:  # Loop through each character
-    if letter.isalnum():  # Check if the character is alphanumeric
-        normalized_string += letter.lower()  # Convert to lowercase and add to normalized_string
+#haal alles dingen eruit
+normaal_input = user_input.replace(" ", "")
 
-# Step 3: Reverse the string
-reversed_string = ""
-for letter in normalized_string:  # Loop through the normalized string
-    reversed_string = letter + reversed_string  # Build the reversed string
+for i in range(len(normaal_input) // 2):
+    if normaal_input[i] != normaal_input[-i-1]:
+        is_palindrome = False
+        
 
-# Step 4: Compare original and reversed strings
-if normalized_string == reversed_string:
-    # Step 5: Display the result
-    print(f'"{user_input}" is a palindrome')
+if is_palindrome:
+    print(f"'{normaal_input}' is a palindrome")
 else:
-    print(f'"{user_input}" is not a palindrome')
+    print(f"'{normaal_input}' is not a palindrome")
