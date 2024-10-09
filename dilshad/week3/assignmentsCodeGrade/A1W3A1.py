@@ -20,13 +20,15 @@ def is_date_valid(starting_date):
     return False  # Date is not valid
 
 def generate_offer_letter(first_name, last_name, job_title, salary, start_date):
+    formatted_salary = f"{salary:,.2f}".replace(',', 'X').replace('.', ',').replace('X', '.')
     return (
         f"Dear {first_name} {last_name},\n"
         f"After careful evaluation of your application for the position of {job_title},\n"
-        f"we are glad to offer you the job. Your salary will be {salary:,.2f} euros annually.\n"
+        f"we are glad to offer you the job. Your salary will be {formatted_salary} euro annually.\n"
         f"Your start date will be on {start_date}. Please do not hesitate to contact us with any questions.\n"
         f"Sincerely,\nHR Department of XYZ"
     )
+
 
 def generate_rejection_letter(first_name, last_name, job_title, feedback=None):
     letter = (
@@ -35,7 +37,7 @@ def generate_rejection_letter(first_name, last_name, job_title, feedback=None):
         f"at this moment we have decided to proceed with another candidate.\n"
     )
     if feedback:
-        letter += f"Here we would like to provide you our feedback about the interview:\n{feedback}\n"
+        letter += f"Here we would like to provide you our feedback about the interview.\n{feedback}\n"
     letter += (
         "We wish you the best in finding your future desired career. Please do not hesitate to contact us with any questions.\n"
         "Sincerely,\nHR Department of XYZ"
@@ -85,6 +87,8 @@ while True:
 
         # Generate and print the offer letter
         letter = generate_offer_letter(first_name, last_name, job_title, salary, start_date)
+        print("\nHere is the final letter to send:\n")
+        print(letter)
 
     else:  # job_or_rej == 'rejection'
         feedback = input("Do you want to provide feedback? (yes or no): ").strip().lower()
@@ -94,6 +98,9 @@ while True:
         else:
             letter = generate_rejection_letter(first_name, last_name, job_title)
 
-    # Print the final letter without showing the inputs
-    print("\nHere is the final letter to send:\n")
-    print(letter)
+        print("\nHere is the final letter to send:\n")
+        print(letter)
+
+
+
+

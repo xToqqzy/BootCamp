@@ -9,3 +9,5 @@ def draw_modular_rectangle_for(width, height):
 user_width = int(input("Width: "))
 user_height = int(input("Height: "))
 draw_modular_rectangle_for(user_width, user_height)
+
+
