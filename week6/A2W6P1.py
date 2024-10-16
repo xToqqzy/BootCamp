@@ -1,23 +1,45 @@
-def unique_chars_dict(input_string):
-    char_count = {}
+def valid_password(user_input):
+    # Directly making the sets for allowed symbols, digits, uppercase, and lowercase letters
+    allowed_symbols = {"*", "@", "!", "?"}
+    digits = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}
+    uppercase = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+                 "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}
+    lowercase = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
+                 "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"}
 
-    for char in input_string:
-        if char not in char_count:
-            char_count[char] = 1
+    if len(user_input) < 8 or len(user_input) > 20:
+        return False
 
-    return len(char_count)  # Return the number of unique characters
+    has_digit = False
+    has_upper = False
+    has_lower = False
+    has_invalid = False
+
+    for char in user_input:
+        if char in digits:
+            has_digit = True
+        elif char in uppercase:
+            has_upper = True
+        elif char in lowercase:
+            has_lower = True
+        elif char not in allowed_symbols:
+            has_invalid = True
+
+    if has_digit and has_upper and has_lower and not has_invalid:
+        return True
+    return False
 
 
-def unique_chars_set(input_string):
-    unique_chars = set(input_string)
-    return len(unique_chars)
+attempts = 0
 
+while attempts < 3:
+    password = input("Password: ")
+    if valid_password(password):
+        print("Password is valid")
+        break
+    else:
+        print("Password is invalid")
+        attempts += 1
 
-if __name__ == "__main__":
-    user_input = input("Enter a string: ")
-
-    unique_count_dict = unique_chars_dict(user_input)
-    unique_count_set = unique_chars_set(user_input)
-
-    print(f"Unique characters (using dict): {unique_count_dict}")
-    print(f"Unique characters (using set): {unique_count_set}")
+if attempts == 3:
+    print("You have reached the maximum number of attempts")
